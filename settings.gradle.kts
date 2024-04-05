@@ -27,6 +27,20 @@ pluginManagement {
   }
 }
 
+plugins {
+  id("com.gradle.develocity") version("3.17")
+  id("com.gradle.common-custom-user-data-gradle-plugin") version("1.13")
+}
+
+develocity {
+  server.set("https://ec2-54-225-44-244.compute-1.amazonaws.com")
+  allowUntrustedServer.set(true)
+  buildScan {
+    publishing.onlyIf { true }
+  }
+}
+
+
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
   repositories {
